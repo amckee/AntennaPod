@@ -91,7 +91,7 @@ public class VideoplayerActivity extends CastEnabledActivity implements SeekBar.
     private PlaybackController controller;
     private boolean showTimeLeft = false;
     private boolean isFavorite = false;
-    private boolean switchToAudioOnly = false;
+    private boolean switchToAudioOnly = true;
     private Disposable disposable;
     private float prog;
 
@@ -118,7 +118,7 @@ public class VideoplayerActivity extends CastEnabledActivity implements SeekBar.
     @Override
     protected void onResume() {
         super.onResume();
-        switchToAudioOnly = false;
+        switchToAudioOnly = true;
         if (PlaybackService.isCasting()) {
             Intent intent = PlaybackService.getPlayerActivityIntent(this);
             if (!intent.getComponent().getClassName().equals(VideoplayerActivity.class.getName())) {
